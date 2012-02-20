@@ -1,0 +1,4 @@
+# Install by typing:
+# 	pip install -r requirements.txt
+
+feedjack
