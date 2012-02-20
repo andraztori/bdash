@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load extras %}
+
+{% block header %}
+	
+{% endblock%}
+
+{% block content %}
+<h1></h1>
+
+{% for story in latest %}
+<h2>
+  <a href="{{ story.link }}">
+    {{ story.title|upper }}
+  </a>
+</h2>
+{% for image in story.content|imagify %}
+<!-- <img src="{{ image }}" align="left" /> -->
+{% endfor %}
+<p>{{ story.content|striptags|truncatewords:"50" }}</p>
+{% endfor %}
+{% endblock %}

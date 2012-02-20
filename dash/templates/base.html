@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <link rel="stylesheet" href="http://127.0.0.1/media/style.css" />
+    <title>{% block title %}D-A-S-H{% endblock %}</title>
+</head>
+
+<body>
+    <div id="header">
+        <ul>
+        	<li><img src="http://127.0.0.1/media/logo.png"></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/news/">News</a></li>
+            <li><a href="http://127.0.0.1:8000/news/feed/rss/">RSS</a></li>
+        {% block header %}
+        {% endblock %}
+        </ul>
+    </div>
+    <div id="breadcrumbs">
+        <ul>
+        {% block bread %}
+            <li><a href="/">Home</a></li>
+            <li><a href="/news/">News</a></li>
+        {% endblock %}
+        </ul>
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+    <div id="preview">
+    	{% block preview %}{% endblock %}
+    </div>
+</body>
+</html>
