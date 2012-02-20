@@ -103,3 +103,8 @@ INSTALLED_APPS = (
 #    'feeds',
     'feedjack',
 )
+
+try:
+    from localsettings import *
+except ImportError:
+    pass
