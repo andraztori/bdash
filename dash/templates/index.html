@@ -18,7 +18,10 @@
 	<h2>{{ story.title|upper }}</h2>
 	<img src="{{ story.content|imagify }}" align="left" width="100px" height="200px" />
   </a>
-<p>{{ story.content|striptags|truncatewords:"50" }}</p>
+<p>
+	{{ story.content|striptags|truncatewords_html:"50" }}<br />
+	<a href="{{ story.link }}" target="_blank">source</a>
+</p>
 </div>
 {% endif %}
 {% endfor %}
