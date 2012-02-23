@@ -26,5 +26,6 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     (r'^news/', include('feedjack.urls')),
+    (r'^science/', include('feedjack.urls')),
     (r'^$', 'django.views.generic.date_based.archive_index', feedjack_dict),
 )

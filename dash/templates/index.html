@@ -1,11 +1,22 @@
 {% extends "base.html" %}
 {% load extras %}
 
-{% block bread %}
+{% block header %}
 	<li>Other sources: </li>
 	{% for link in links %}
-	<li><a href="{{ link.url }}">{{ link.name }}</li>
+	<li><a href="{{ link.url }}">{{ link.name }}</a></li>
 	{% endfor %}
+{% endblock %}
+
+{% block bread %}
+	<li>Politics</li>
+	<li>Lifestyle</li>
+	<li>Entertainment</li>
+	<li>Science & Tech</li>
+	<li>Health</li>
+	<li>Green</li>
+	<li>Business</li>
+	<li>Sports</li>
 {% endblock %}
 
 {% block content %}
@@ -19,9 +30,12 @@
 	<img src="{{ story.content|imagify }}" align="left" width="100px" height="200px" />
   </a>
 <p>
+</p>
+<p>
 	{{ story.content|striptags|truncatewords_html:"50" }}<br />
 	<a href="{{ story.link }}" target="_blank">source</a>
 </p>
+
 </div>
 {% endif %}
 {% endfor %}
