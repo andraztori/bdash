@@ -2,6 +2,7 @@ from django.conf.urls.defaults import *
 from django.views.generic.date_based import archive_index
 
 from feedjack.models import Post, Link
+from feeds.templatetags.extras import imagify
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -12,7 +13,7 @@ feedjack_dict = {
 	'date_field': 'date_modified', 
 	'template_name': 'index.html', 
 	'num_latest': 100,
-	
+	'extra_context': { 'links': Link.objects.all, },
 }
 
 urlpatterns = patterns('',

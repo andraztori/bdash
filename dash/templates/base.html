@@ -2,6 +2,9 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+	<script src="http://127.0.0.1/media/prettyphoto/js/jquery-1.6.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" href="http://127.0.0.1/media/prettyphoto/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+	<script src="http://127.0.0.1/media/prettyphoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="http://127.0.0.1/media/style.css" />
     <title>{% block title %}D-A-S-H{% endblock %}</title>
 </head>
@@ -28,8 +31,13 @@
     <div id="content">
         {% block content %}{% endblock %}
     </div>
-    <div id="preview">
+<!--    <div id="preview">
     	{% block preview %}{% endblock %}
-    </div>
+    </div>-->
+	<script type="text/javascript" charset="utf-8">
+	  $(document).ready(function(){
+	    $("a[rel^='prettyPhoto']").prettyPhoto();
+	  });
+	</script>
 </body>
 </html>

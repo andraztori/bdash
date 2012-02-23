@@ -1,22 +1,25 @@
 {% extends "base.html" %}
 {% load extras %}
 
-{% block header %}
-	
-{% endblock%}
+{% block bread %}
+	<li>Other sources: </li>
+	{% for link in links %}
+	<li><a href="{{ link.url }}">{{ link.name }}</li>
+	{% endfor %}
+{% endblock %}
 
 {% block content %}
 <h1></h1>
 
 {% for story in latest %}
-<h2>
-  <a href="{{ story.link }}">
-    {{ story.title|upper }}
+{% if story.content|imagify %}
+<div class="story">
+  <a href="{{ story.content|imagify }}" rel="prettyPhoto">
+	<h2>{{ story.title|upper }}</h2>
+	<img src="{{ story.content|imagify }}" align="left" width="100px" height="200px" />
   </a>
-</h2>
-{% for image in story.content|imagify %}
-<!-- <img src="{{ image }}" align="left" /> -->
-{% endfor %}
 <p>{{ story.content|striptags|truncatewords:"50" }}</p>
+</div>
+{% endif %}
 {% endfor %}
 {% endblock %}
