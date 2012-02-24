@@ -8,9 +8,12 @@ h1 a {
 	overflow: hidden;
 }
 
+
 #header ul li {
 	display: inline;
 }
+
+li.selected {  }
 
 #breadcrumbs ul li {
 	display: inline;

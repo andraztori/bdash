@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load extras %}
+
+{% block bread %}
+	{% for category in categories %}
+		<li><a href="/{{ category.slug }}/">{{ category }}</a></li>
+	{% endfor %}
+{% endblock %}
+
+{% block content %}
+<p>{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}</p>
+{% for story in latest %}
+<div class="editstory">
+<form action="/edit/classify/" method="post">
+	{% csrf_token %}
+	Mark as: 
+	{% for category in categories %}
+	<input type="submit" name="category" value="{{ category }}" />
+	{% endfor %}
+	<br />Title: <input type="text" size="75" name="title" value="{{ story.title }}" />
+	<input type="hidden" name="guid" value="{{ story.guid }}" />
+	</form>
+</form>
+<p>
+	{{ story.content|safe }}<br />
+	<a href="{{ story.link }}" target="_blank">source</a>
+</p>
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% load extras %}
 
+{% block feeds %}
+	{% if selected %}
+	<link rel="alternate" type="application/rss+xml" href="/{{ selected.slug }}/feed/" title="RSS Feed">
+	{% endif %}
+{% endblock %}
+
 {% block header %}
 	<li>Other sources: </li>
 	{% for link in links %}
@@ -25,11 +31,11 @@
 <h1>Latest {{ selected }} News in Data and Pictures</h1>
 	{% if debug %}{{ debug }}{% endif %}
 {% for story in latest %}
-{% if story.content|imagify %}
+{% if story.text|imagify %}
 <div class="story">
-  <a href="{{ story.content|imagify }}" rel="prettyPhoto">
+  <a href="{{ story.text|imagify }}" rel="prettyPhoto">
 	<h2>{{ story.title|upper }}</h2>
-	<img src="{{ story.content|imagify }}" align="left" width="100px" height="200px" />
+	<img src="{{ story.text|imagify }}" align="left" width="100px" height="200px" />
   </a>
 <p>
 </p>

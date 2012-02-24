@@ -1,6 +1,6 @@
-from feeds.models import Infographic
-from feeds.models import Source
+from feeds.models import Category, Source, Infographic
 from django.contrib import admin
 
-admin.site.register(Infographic)
+admin.site.register(Category)
 admin.site.register(Source)
+admin.site.register(Infographic)
