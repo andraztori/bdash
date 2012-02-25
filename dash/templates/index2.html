@@ -28,19 +28,19 @@
 {% endblock %}
 
 {% block content %}
-<h1>Latest {{ selected }} News in Data and Pictures</h1>
+<h1>Latest {{ selected }} News<br />in Data and Pictures</h1>
 	{% if debug %}{{ debug }}{% endif %}
 {% for story in latest %}
 {% if story.text|imagify %}
 <div class="story">
   <a href="{{ story.text|imagify }}" rel="prettyPhoto">
-	<h2>{{ story.title|upper }}</h2>
 	<img src="{{ story.text|imagify }}" align="left" width="100px" height="200px" />
+	<h2>{{ story.title|upper }}</h2>
   </a>
 <p>
 </p>
 <p>
-	{{ story.content|striptags|truncatewords_html:"50" }}<br />
+	{{ story.text|striptags|truncatewords_html:"50" }}<br />
 	<a href="{{ story.link }}" target="_blank">source</a>
 </p>
 

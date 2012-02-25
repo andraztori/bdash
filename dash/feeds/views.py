@@ -34,7 +34,7 @@ def category_index(request, cat):
 	c = Category.objects.get(slug=cat)
 	cc = c.infographic_set;
 	return render_to_response('index2.html', {
-		'latest': cc.all(), 
+		'latest': cc.order_by('source__date_modified').reverse(), 
 		'links': Link.objects.all(), 
 		'categories': Category.objects.all(),
 		'selected': c,

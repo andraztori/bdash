@@ -12,11 +12,8 @@
 
 <body>
     <div id="header">
-        <ul>
-        	<li><img src="http://127.0.0.1/media/logo.png"></li>
-            <li><a href="/">Home</a></li>
-            <li><a href="/news/">News</a></li>
-            <li><a href="http://127.0.0.1:8000/news/feed/rss/">RSS</a></li>
+		<a href="/"><img id='logo' src="http://127.0.0.1/media/logo.png" align="left" /></a>
+        <ul id="extralinks">
         {% block header %}
         {% endblock %}
         </ul>

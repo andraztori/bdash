@@ -1,36 +1,3 @@
-h1 a {
-	font-color: black;
-	font-size: 1em;
-}
-
-.story { 
-	float: left; width: 300px; height: 300px; 
-	overflow: hidden;
-}
-
-
-#header ul li {
-	display: inline;
-}
-
-li.selected {  }
-
-#breadcrumbs ul li {
-	display: inline;
-}
-
-#content p {
-	font-size: 0.9em;
-}
-
-#content, #preview {
-	float: left;
-	_width: 40%;
-}
-
-#preview {
-	border: 1px solid grey;
-}
 
 /*
     DJANGO Admin styles
@@ -789,4 +756,80 @@ table#change-history tbody th {
 #content-related .module h2 {
     background: #eee url(../img/admin/nav-bg.gif) bottom left repeat-x;
     color: #666;
+}
+
+/* ---- */
+
+h1 a {
+	font-color: black;
+}
+
+h1 { 
+	float: right; 
+	font-size: 4em; 
+	text-align: right;
+}
+
+.story { 
+	float: left; width: 80%; height:20em; 
+	overflow: hidden;
+	padding: 1em 1em 1em 1em;
+}
+
+h2 { 
+	font-size: 3em; 
+}
+
+#header ul {
+	padding-top: 3em;
+}
+
+ul#toplinks { float: left; }
+
+ul#extralinks {
+	width: 55em;
+	float: right;
+}
+
+#header ul li {
+	display: inline;
+}
+
+#header ul li, #breadcrumbs ul li { 
+	margin: 1em 1em 1em 1em; 
+	font-size: 1.5em;
+	line-height: 1.6em;
+}
+
+li.selected {  }
+
+#breadcrumbs ul li {
+	display: inline;
+}
+
+#content p {
+	font-size: 1.2em;
+}
+
+#content, #preview {
+	float: left;
+}
+
+#content {
+	margin-top: 20em;
+}
+
+#preview {
+	border: 1px solid grey;
+}
+
+img#logo { padding: 3em 3em 3em 3em }
+
+#header, #breadcrumbs {
+	position: fixed;
+}
+
+#breadcrumbs { 
+	margin-top: 10em; 
+	background-color: white;
 }
