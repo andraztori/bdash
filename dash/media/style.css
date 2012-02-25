@@ -817,6 +817,7 @@ li.selected {  }
 
 #content {
 	margin-top: 20em;
+	width: 100%;
 }
 
 #preview {
