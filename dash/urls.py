@@ -13,7 +13,7 @@ feedjack_dict = {
 	'queryset': Post.objects.all(), 
 	'date_field': 'date_modified', 
 	'template_name': 'index.html', 
-	'num_latest': 100,
+	'num_latest': 50,
 	'extra_context': { 'links': Link.objects.all, 'categories': Category.objects.all, },
 }
 

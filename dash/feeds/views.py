@@ -34,15 +34,20 @@ def category_index(request, cat):
 	c = Category.objects.get(slug=cat)
 	cc = c.infographic_set;
 	return render_to_response('index2.html', {
-		'latest': cc.order_by('source__date_modified').reverse(), 
+		'latest': cc.order_by('source__date_modified').reverse()[0:10], 
 		'links': Link.objects.all(), 
 		'categories': Category.objects.all(),
 		'selected': c,
 	})
     
 def manage_categories(request):
-	# show the first two Posts that doesn't have corresponding Infographic pairs yet.
-    return render_to_response('edit.html', {
+	# find all feedjack posts assigned to sites with names of categories
+	for c in Category.objects.all():
+		for p in Post.objects.filter(infographic__isnull=True,feed__subscriber__site__name=c.title):
+			image = imagify(p.content)
+			i = Infographic(title=p.title, source=p, category=c, url=p.link, text=p.content, imageurl=image)
+			i.save()
+	return render_to_response('edit.html', {
     	'latest': Post.objects.filter(infographic__isnull=True)[0:1], 
     	'links': Link.objects.all(), 
 		'categories': Category.objects.all(),
