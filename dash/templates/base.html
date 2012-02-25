@@ -1,18 +1,20 @@
+{% load extras %}
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<script src="http://127.0.0.1/media/prettyphoto/js/jquery-1.6.1.min.js" type="text/javascript" charset="utf-8"></script>
-	<link rel="stylesheet" href="http://127.0.0.1/media/prettyphoto/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
-	<script src="http://127.0.0.1/media/prettyphoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
-    <link rel="stylesheet" href="http://127.0.0.1/media/style.css" />
+	<script src="{% home_url %}/media/prettyphoto/js/jquery-1.6.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" href="{% home_url %}/media/prettyphoto/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+	<script src="{% home_url %}/media/prettyphoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="{% home_url %}/media/style.css" />
     <title>{% block title %}D-A-S-H{% endblock %}</title>
     {% block feeds %}{% endblock %}
 </head>
 
 <body>
     <div id="header">
-		<a href="/"><img id='logo' src="http://127.0.0.1/media/logo.png" align="left" /></a>
+		<a href="/"><img id='logo' src="{% home_url %}/media/logo.png" align="left" /></a>
         <ul id="extralinks">
         {% block header %}
         {% endblock %}

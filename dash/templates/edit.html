@@ -9,6 +9,7 @@
 
 {% block content %}
 <p>{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}</p>
+<h1>Which audience would this be interesting to?</h1>
 {% for story in latest %}
 <div class="editstory">
 <form action="/edit/classify/" method="post">

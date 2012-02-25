@@ -1,5 +1,6 @@
 from django import template
 from django.template.defaultfilters import stringfilter
+from localsettings import *
 
 import re
 
@@ -19,3 +20,7 @@ def imagify(value):
 			z.append(m)
 	if z:
 		return z.pop(0)
+
+@register.simple_tag
+def home_url():
+	return HOME_URL;
