@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load extras %}
+
+{% block header %}
+	<li>Other sources: </li>
+	{% for link in links %}
+	<li><a href="{{ link.url }}">{{ link.name }}</a></li>
+	{% endfor %}
+{% endblock %}
+
+{% block bread %}
+	{% for category in categories %}
+	<li 
+	{% if selected == category %}
+		class="selected">
+	{% else %}
+		><a href="/{{ category.slug }}/">
+	{% endif %}
+	{{ category }}</a></li>
+	{% endfor %}
+
+{% endblock %}
+
+{% block content %}
+<h1>Latest {{ selected }} News in Data and Pictures</h1>
+	{% if debug %}{{ debug }}{% endif %}
+{% for story in latest %}
+{% if story.content|imagify %}
+<div class="story">
+  <a href="{{ story.content|imagify }}" rel="prettyPhoto">
+	<h2>{{ story.title|upper }}</h2>
+	<img src="{{ story.content|imagify }}" align="left" width="100px" height="200px" />
+  </a>
+<p>
+</p>
+<p>
+	{{ story.content|striptags|truncatewords_html:"50" }}<br />
+	<a href="{{ story.link }}" target="_blank">source</a>
+</p>
+
+</div>
+{% endif %}
+{% endfor %}
+{% endblock %}
